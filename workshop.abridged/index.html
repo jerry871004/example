@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!----------------------------->
+<link rel="stylesheet" type="text/css" href="book.css">
+<!----------------------------->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/kendo.common-material.min.css">
+    <link rel="stylesheet" href="./css/kendo.material.min.css">
+    <link rel="stylesheet" href="./css/uikit.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>圖書館</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="navbar-title text-center">圖書管理系統</h1>
+        </nav>
+    </header>
+    <main>
+        <div id="jump_button_div">
+            <button id="jump_button" class="k-button k-primary btn-add-book">新增書籍</button>
+        </div>
+        <div id="book_grid_div" class="uk-container align-center">
+            <div id="book_grid" >
+            </div>
+        </div>
+    </main>
+        <div id="window">                  
+            <img class="book-image" src="image/database.jpg" alt="" style="height: 350px">
+            <label>圖書類別</label>
+            <select id="book_category" style="width: 100%">
+            </select>
+            <br>
+            <label>書名</label>
+            <input name="bookNa" id="book_name" type="text" class="k-textbox" required validationMessage="must input" />
+            <br>
+            <label>作者</label>
+            <input name="bookAu" id="book_author" type="text" class="k-textbox" required validationMessage="must input" />
+            <br>
+            <label>出版社</label>
+            <input name="bookPu" id="book_publisher" type="text" class="k-textbox" required validationMessage="must input" />
+            <br>
+            <br>
+            <label>購買日期</label>
+            <input id="bought_datepicker" value="10/04/1998" title="datepicker"/>
+            <!-- <input type="text" class="k-textbox" style="width: 100%;" /> -->
+            <ul class="uk-text-right">
+                <button id="add-book" class="k-button k-primary btn-add-book">新增</button>
+            </ul>
+        </div>
+    <footer>
+    </footer>
+</body>
+<script type="text/javascript" src="data/book-data.js"></script>
+<script src="./js/jquery-2.1.4.min.js"></script>
+<script src="./js/kendo.all.min.js"></script>
+<script src="./js/uikit.min.js"></script>
+<script src="./js/script.js"></script>
+<script>
+    $(document).ready(function() {
+                    var myWindow = $("#window"),
+                        click_jump = $("#jump_button");
+
+                    click_jump.click(function() {
+                        myWindow.data("kendoWindow").open();
+                        click_jump.fadeOut();
+                    });
+
+                    function onClose() {
+                        click_jump.fadeIn();
+                    }
+
+                    myWindow.kendoWindow({
+                        width: "800px",
+                        height:"800px",
+                        title: "新增書籍",
+                        visible: false,
+                        actions: [
+                            "Pin",
+                            "Minimize",
+                            "Maximize",
+                            "Close"
+                        ],
+                        close: onClose
+                    }).data("kendoWindow").center();
+                });
+</script>
+</html>

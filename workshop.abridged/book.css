@@ -1,0 +1,27 @@
+main {
+	padding: 0%;
+	height: 80%;
+}
+#jump_button_div {
+	style="height: 80px;
+}
+#jump_button {
+	margin-top: 2%;
+	margin-left: 48%;
+}
+#book_grid_div {
+	margin-top:2.5%;
+	margin-bottom:5%;
+}
+#book_name {
+	width: 100%;
+}
+#book_author {
+	width: 100%;
+}
+#book_publisher {
+	width: 100%;
+}
+#bought_datepicker {
+	width: 100%;
+}
